@@ -5,14 +5,14 @@ import 'rxjs/add/operator/map';
 import { FlickrInterface } from './flickr-interface';
 
 
-s@Injectable()
+@Injectable()
 export class FlickrService {
   key = 'ca370d51a054836007519a00ff4ce59e';
 
   constructor(private http: Http) { }
 
   getAllPhotos(): Observable<FlickrInterface> {
-    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.key}&tags=pessoas&format=json&nojsoncallback=1`;
+    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&per_page=500&api_key=${this.key}&tags=pessoas&format=json&nojsoncallback=1`;
     return this.http
       .get(url)
       .map(res => res.json())

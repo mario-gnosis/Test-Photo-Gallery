@@ -1,19 +1,26 @@
 <!-- As a link -->
-<nav class="navbar navbar-light bg-light shadow p-3 mb-5 rounded">
+<nav class="navbar-alig navbar-light bg-light shadow p-3 mb-5 rounded">
+  <img src="./assets/flickr.png" class="icon" loading="lazy">
   <span class="navbar-brand mb-0 h1">Photo Gallery</span>
 </nav>
 
-<div class="row-card">
-  <div class="col-lg-2 card" *ngFor="let photo of photos | paginate: {itemsPerPage: 20, currentPage: page};">
-    <div class="thumbnail zoom">
-      <img src={{photo?.url}} class="card-img-top">
-    </div>
-    <div class="body-card">
-      <h5 class="card-title">{{photo?.title}}</h5>
+<ng-container *ngIf="photos">
+  <div class="row-card">
+    <div class="col-lg-2 card" *ngFor="let photo of photos | paginate: {itemsPerPage: 20, currentPage: page};">
+      <div class="thumbnail zoom">
+        <img src={{photo?.url}} class="card-img-top card-img">
+      </div>
+      <div class="body-card">
+        <h5 class="card-title">{{photo?.title}}</h5>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="pagination">
-  <pagination-controls (pageChange)=" page = $event"></pagination-controls>
-</div>
+  <div class="pagination">
+    <pagination-controls (pageChange)=" page = $event"></pagination-controls>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!photos">
+  <p>Não constam fotos no momento.</p>
+</ng-container>

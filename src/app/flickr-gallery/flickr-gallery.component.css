@@ -1,6 +1,19 @@
 
+.navbar-alig {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 span {
-  padding-left: 3%;
+  padding-left: 1%;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  margin-left: 3%;
 }
 
 .row-card {
@@ -15,7 +28,7 @@ span {
   padding: 1%;
 }
 
-img {
+.card-img {
   height: 250px;
   margin: 0;
 }
