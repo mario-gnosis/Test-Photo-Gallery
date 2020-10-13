@@ -36,6 +36,7 @@ img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
 .body-card {
   flex: 1 1 auto;
   min-height: 1px;

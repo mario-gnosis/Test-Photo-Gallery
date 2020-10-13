@@ -5,9 +5,7 @@ import 'rxjs/add/operator/map';
 import { FlickrInterface } from './flickr-interface';
 
 
-
-
-@Injectable()
+s@Injectable()
 export class FlickrService {
   key = 'ca370d51a054836007519a00ff4ce59e';
 
@@ -20,9 +18,6 @@ export class FlickrService {
       .map(res => res.json())
       .map(val => {
         if (val.stat === 'ok') {
-          val.photos.photo.pages = val.photos.pages;
-          val.photos.photo.perpage = val.photos.perpage;
-          val.photos.photo.total = val.photos.total;
           return val.photos.photo.map((photo: any) => {
             return {
               url: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`,

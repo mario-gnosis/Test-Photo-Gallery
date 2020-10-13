@@ -13,7 +13,6 @@ export class FlickrGalleryComponent implements OnInit {
  photos: FlickrInterface;
  page = 1;
 
-
 constructor(private flickr: FlickrService) {}
 
   ngOnInit()  {
